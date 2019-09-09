@@ -38,23 +38,23 @@ font-family: 'Open Sans', sans-serif;
 <script>
 mapboxgl.accessToken = 'pk.eyJ1IjoiYnNvZ2hpZ2lhbiIsImEiOiJjazBhOTUxam4wMDNtM2RvNXJzbjQ5aGV6In0.eL8NJ0-ikx_5Dl49994bGw';
 var map = new mapboxgl.Map({
-container: 'map',
-style: 'mapbox://styles/bsoghigian/ck0bqtb3h3gpj1cmqxfqvnlfk',
-zoom: 13,
-center: [4.899, 52.372]
+container: 'map',//id of the div you use for the canvas
+style: 'mapbox://styles/bsoghigian/ck0bqtb3h3gpj1cmqxfqvnlfk',//This is where you put your custom style url
+zoom: 13,//How zoomed in or out of the map you are
+center: [4.899, 52.372]//Point of origin. Where your map begins in longitude and lattitude
 });
  
-var layerList = document.getElementById('menu');
-var inputs = layerList.getElementsByTagName('input');
+// var layerList = document.getElementById('menu');
+// var inputs = layerList.getElementsByTagName('input');
  
-function switchLayer(layer) {
-var layerId = layer.target.id;
-map.setStyle('mapbox://styles/mapbox/' + layerId);
-}
+// function switchLayer(layer) {
+// var layerId = layer.target.id;
+// map.setStyle('mapbox://styles/mapbox/' + layerId);
+// }
  
-for (var i = 0; i < inputs.length; i++) {
-inputs[i].onclick = switchLayer;
-}
+// for (var i = 0; i < inputs.length; i++) {
+// inputs[i].onclick = switchLayer;
+// }
 </script>
  
 </body>
