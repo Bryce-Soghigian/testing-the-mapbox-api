@@ -20,21 +20,23 @@ background: #fff;
 padding: 10px;
 font-family: 'Open Sans', sans-serif;
 }
+#info {
+display: block;
+position: relative;
+margin: 0px auto;
+width: 50%;
+padding: 10px;
+border: none;
+border-radius: 3px;
+font-size: 12px;
+text-align: center;
+color: #222;
+background: #fff;
+}
 </style>
  
 <div id='map'></div>
-<div id='menu'>
-<!-- <input id='streets-v11' type='radio' name='rtoggle' value='streets' checked='checked'>
-<label for='streets'>streets</label>
-<input id='light-v10' type='radio' name='rtoggle' value='light'>
-<label for='light'>light</label>
-<input id='dark-v10' type='radio' name='rtoggle' value='dark'>
-<label for='dark'>dark</label>
-<input id='outdoors-v11' type='radio' name='rtoggle' value='outdoors'>
-<label for='outdoors'>outdoors</label>
-<input id='satellite-v9' type='radio' name='rtoggle' value='satellite'>
-<label for='satellite'>satellite</label> -->
-</div>
+<pre id='info'></pre>
 <script>
 mapboxgl.accessToken = 'pk.eyJ1IjoiYnNvZ2hpZ2lhbiIsImEiOiJjazBhOTUxam4wMDNtM2RvNXJzbjQ5aGV6In0.eL8NJ0-ikx_5Dl49994bGw';
 var map = new mapboxgl.Map({
@@ -46,8 +48,15 @@ pitch: -60, // pitch in degrees
 bearing: 0, // bearing in degrees
 zoom: 2.5
 });
-
-
+map.on('mousemove', function (e) {
+document.getElementById('info').innerHTML =
+// e.point is the x, y coordinates of the mousemove event relative
+// to the top-left corner of the map
+JSON.stringify(e.point) + '<br />' +
+// e.lngLat is the longitude, latitude geographical position of the event
+JSON.stringify(e.lngLat.wrap());
+});
+//Adding icons
 var size = 25;
  
  var pulsingDot = {
