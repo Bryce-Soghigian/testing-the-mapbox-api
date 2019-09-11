@@ -20,7 +20,7 @@ background: #fff;
 padding: 10px;
 font-family: 'Open Sans', sans-serif;
 }
-#info {
+/* #info {
 display: block;
 position: relative;
 margin: 0px auto;
@@ -32,30 +32,36 @@ font-size: 12px;
 text-align: center;
 color: #222;
 background: #fff;
-}
+} */
 </style>
  
 <div id='map'></div>
 <pre id='info'></pre>
 <script>
+    var bounds = [
+[-135, 13], // Southwest coordinates
+[-63, 50]  // Northeast coordinates
+];
 mapboxgl.accessToken = 'pk.eyJ1IjoiYnNvZ2hpZ2lhbiIsImEiOiJjazBhOTUxam4wMDNtM2RvNXJzbjQ5aGV6In0.eL8NJ0-ikx_5Dl49994bGw';
 var map = new mapboxgl.Map({
 container: 'map',//id of the div you use for the canvas
-style: 'mapbox://styles/bsoghigian/ck0bqtb3h3gpj1cmqxfqvnlfk',//This is where you put your custom style url
+style: 'mapbox://styles/bsoghigian/ck0e1jfte06791cmjpa22gm1h',//This is where you put your custom style url
 zoom: 13,//How zoomed in or out of the map you are
 center: [-97, 39],//Point of origin. Where your map begins in longitude and lattitude
 pitch: -60, // pitch in degrees
 bearing: 0, // bearing in degrees
-zoom: 2.5
+zoom: 1,
+maxBounds: bounds
 });
-map.on('mousemove', function (e) {
-document.getElementById('info').innerHTML =
-// e.point is the x, y coordinates of the mousemove event relative
-// to the top-left corner of the map
-JSON.stringify(e.point) + '<br />' +
-// e.lngLat is the longitude, latitude geographical position of the event
-JSON.stringify(e.lngLat.wrap());
-});
+//Location tracker.
+// map.on('mousemove', function (e) {
+// document.getElementById('info').innerHTML =
+// // e.point is the x, y coordinates of the mousemove event relative
+// // to the top-left corner of the map
+// JSON.stringify(e.point) + '<br />' +
+// // e.lngLat is the longitude, latitude geographical position of the event
+// JSON.stringify(e.lngLat.wrap());
+// });
 //Adding icons
 var size = 25;
  
@@ -132,17 +138,7 @@ var size = 25;
  });
  });
   
-// var layerList = document.getElementById('menu');
-// var inputs = layerList.getElementsByTagName('input');
- 
-// function switchLayer(layer) {
-// var layerId = layer.target.id;
-// map.setStyle('mapbox://styles/mapbox/' + layerId);
-// }
- 
-// for (var i = 0; i < inputs.length; i++) {
-// inputs[i].onclick = switchLayer;
-// }
+
 </script>
  
 </body>
