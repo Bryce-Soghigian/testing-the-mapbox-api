@@ -9,8 +9,7 @@ const mapAccess = {
 
 const mapStyle = {
     width: '100%',
-    height: 600,
-    style: 'mapbox://styles/bsoghigian/ck0eubu3v0wzj1cp3eu3khs2e'
+    height: 600
 }
 
 const queryParams = {
