@@ -34,6 +34,10 @@ class App extends Component {
           zoom:zoom,
           maxBounds: bounds
         });
+        map.addControl(new MapboxGeocoder({
+            accessToken: mapboxgl.accessToken,
+            mapboxgl: mapboxgl
+            }));
     
         map.on('move', () => {
           const { lng, lat } = map.getCenter();
