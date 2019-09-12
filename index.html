@@ -12,7 +12,8 @@ body { margin:0; padding:0; }
 </style>
 </head>
 <body>
- 
+    <script src='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.4.1/mapbox-gl-geocoder.min.js'></script>
+    <link rel='stylesheet' href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.4.1/mapbox-gl-geocoder.css' type='text/css' />
 <style>
 #menu {
 position: absolute;
@@ -62,6 +63,10 @@ maxBounds: bounds
 // // e.lngLat is the longitude, latitude geographical position of the event
 // JSON.stringify(e.lngLat.wrap());
 // });
+map.addControl(new MapboxGeocoder({
+accessToken: mapboxgl.accessToken,
+mapboxgl: mapboxgl
+}));
 //Adding icons
 var size = 25;
  
