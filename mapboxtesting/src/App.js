@@ -22,7 +22,7 @@ class App extends Component {
       componentDidMount() {
         const { lng, lat, zoom } = this.state;
         const bounds = [
-            [-135, 13], // Southwest coordinates
+            [-130, 22], // Southwest coordinates
 [-63, 50] 
         ]
 
