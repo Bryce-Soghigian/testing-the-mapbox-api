@@ -21,7 +21,7 @@ background: #fff;
 padding: 10px;
 font-family: 'Open Sans', sans-serif;
 }
-/* #info {
+#info {
 display: block;
 position: relative;
 margin: 0px auto;
@@ -33,7 +33,7 @@ font-size: 12px;
 text-align: center;
 color: #222;
 background: #fff;
-} */
+}
 </style>
  
 <div id='map'></div>
@@ -52,17 +52,17 @@ center: [-97, 50],//Point of origin. Where your map begins in longitude and latt
 pitch: -60, // pitch in degrees
 bearing: 0, // bearing in degrees
 zoom: 1,
-maxBounds: bounds
+// maxBounds: bounds
 });
-//Location tracker.
-// map.on('mousemove', function (e) {
-// document.getElementById('info').innerHTML =
-// // e.point is the x, y coordinates of the mousemove event relative
-// // to the top-left corner of the map
-// JSON.stringify(e.point) + '<br />' +
-// // e.lngLat is the longitude, latitude geographical position of the event
-// JSON.stringify(e.lngLat.wrap());
-// });
+Location tracker.
+map.on('mousemove', function (e) {
+document.getElementById('info').innerHTML =
+// e.point is the x, y coordinates of the mousemove event relative
+// to the top-left corner of the map
+JSON.stringify(e.point) + '<br />' +
+// e.lngLat is the longitude, latitude geographical position of the event
+JSON.stringify(e.lngLat.wrap());
+});
 map.addControl(new MapboxGeocoder({
 accessToken: mapboxgl.accessToken,
 mapboxgl: mapboxgl
